@@ -1,8 +1,4 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   Output.cpp
 D:\Programming\Project_Phase1\Phase1_Code\GUI\Output.cpp(17,29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  Phase1-TestCode.cpp
-  Input.cpp
   PT Project.vcxproj -> D:\Programming\Project_Phase1\Phase1_Code\Debug\PT Project.exe

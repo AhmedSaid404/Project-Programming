@@ -58,7 +58,18 @@ enum DesignMenuItem //The items of the design menu --> THE ORDER MATTERS
 	ITM_End,		//End statement
 	ITM_Read,      //Read statement
 	ITM_Write,		//Write statement
-	
+	ITM_Ass_Value,  // Assignment Value statement
+	ITM_Ass_Variable,    // Assignment Variable statement
+	ITM_Ass_Operator,    // Assignment Operator satement
+	ITM_Condition,      // Condition satement
+	ITM_Connector,     // Connector icon
+	ITM_Select,        // Select icon
+	ITM_Copy,           // Copy icon
+	ITM_Paste,          // Paste icon
+	ITM_Delete,         // Delete icon
+	ITM_Simulation,     // Switch to simulation icon
+	ITM_Exit,          // Exit icon
+
 	//TODO: Add more items names here
 	
 	DSN_ITM_CNT		//no. of design menu items ==> This should be the last line in this enum
@@ -69,11 +80,13 @@ enum DesignMenuItem //The items of the design menu --> THE ORDER MATTERS
 enum SimMenuItem //The items of the simulation menu
 {
 	//Note: Items are ordered here as they appear in menu
-	ITM_VALIDATE,	//Validate
-	ITM_RUN,	    //Run
+	//ITM_VALIDATE,	//Validate
+	ITM_Run,	    //Run
 		
 	//TODO:Add more items names here
-	
+	ITM_Design,    // Switch to design mode
+
+
 	SIM_ITM_CNT		//no. of simulation menu items ==> This should be the last line in this enum
 	
 };

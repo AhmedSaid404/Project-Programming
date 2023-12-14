@@ -70,16 +70,29 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 	//To control the order of these images in the menu, 
 	//reoder them in Defs.h ==> enum DrawMenuItem
 	string MenuItemImages[DSN_ITM_CNT];
-	MenuItemImages[ITM_VALUE_ASSIGN] = "images\\Assign.jpg";
-	MenuItemImages[ITM_COND] = "images\\Condition.jpg";
-	MenuItemImages[ITM_START] = "images\\Start.jpg";
-	MenuItemImages[ITM_EXIT] = "images\\Exit.jpg";
+	MenuItemImages[ITM_Start] = "images\\Start.jpg";
+	MenuItemImages[ITM_End] = "images\\End.jpg";
+	MenuItemImages[ITM_Read] = "images\\Read.jpg";
+	MenuItemImages[ITM_Write] = "images\\Write.jpg";
+	MenuItemImages[ITM_Ass_Value] = "images\\AssignValue.jpg";
+	MenuItemImages[ITM_Ass_Variable] = "images\\AssignVariable.jpg";
+	MenuItemImages[ITM_Ass_Operator] = "images\\AssignOperator.jpg";
+	MenuItemImages[ITM_Condition] = "images\\Condition.jpg";
+	MenuItemImages[ITM_Connector] = "images\\Connector.jpg";
+	MenuItemImages[ITM_Select] = "images\\Select.jpg";
+	MenuItemImages[ITM_Copy] = "images\\Copy.jpg";
+	MenuItemImages[ITM_Paste] = "images\\Paste.jpg";
+	MenuItemImages[ITM_Delete] = "images\\Delete.jpg";
+	MenuItemImages[ITM_Simulation] = "images\\Simulation.jpg";
+	MenuItemImages[ITM_Exit] = "images\\Exit.jpg";
+
+
 	//TODO: Prepare images for each menu item and add it to the list
 
 
 	//Draw menu item one image at a time
 	for(int i=0; i<DSN_ITM_CNT; i++)
-		pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
+	pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
 
 	//Draw a line under the toolbar
 	pWind->SetPen(RED, 2);
@@ -92,6 +105,13 @@ void Output::CreateSimulationToolBar() //Draws the Simulation Menu
 {
 	UI.AppMode = SIMULATION;	//Simulation Mode
 	///TODO: add code to create the simulation tool bar
+	string MenuItemImages[SIM_ITM_CNT];
+	MenuItemImages[ITM_Run] = "images\\Run.jpg";  
+	MenuItemImages[ITM_Design] = "images\\Design.jpg";
+
+	for (int i = 0; i < SIM_ITM_CNT; i++)
+		pWind->DrawImage(MenuItemImages[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void Output::ClearStatusBar()
