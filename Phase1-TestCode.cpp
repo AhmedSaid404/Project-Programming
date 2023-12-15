@@ -70,13 +70,15 @@ int main()
 	P.x = 100;	P.y = 200;
 	pOut->DrawAssign(P,80, UI.ASSGN_HI, " = ");
 
-	//Drawing edited (normal) (non-empty) assignment statement --> STATE 3
+	//Drawing (normal) (non-empty) assignment statement --> STATE 3
 	P.x = 100;	P.y = 300;
 	pOut->DrawAssign(P,UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000");
 
 	//Drawing (highlighted) (non-empty) assignment statement --> STATE 4
 	P.x = 300;	P.y = 300;
 	pOut->DrawAssign(P,UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000", true);
+
+
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -89,6 +91,23 @@ int main()
 	////////////
 	//TODO: Add code to draw other types of assignment statements (Variable and Operator) here in ALL STATES
 	////////////
+
+	//Drawing (normal) variable assignment statement --> STATE 1
+	P.x = 100;	P.y = 100;
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "X = Y");
+
+	//Drawing (highlighted) variable assignment statement --> STATE 2
+	P.x = 300;	P.y = 100;
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "X = Y", true);
+
+
+	//Drawing (normal) Operator assignment statement --> STATE 3
+	P.x = 100;	P.y = 300;
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "X=Y+1");
+
+	//Drawing (highlighted) Operator assignment statement --> STATE 4
+	P.x = 300;	P.y = 300;
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "X=Y+1", true);
 	
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -101,6 +120,22 @@ int main()
 	//TODO: Add code to draw different (Conditional) statements here in ALL STATES
 	////////////
 
+	//Drawing (normal) (empty) Conditionl statement --> STATE 1
+	P.x = 100;	P.y = 100;
+	pOut->DrawCondtinalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
+
+	//Drawing (highlighted) (empty) Conditional statement --> STATE 2
+	P.x = 300;	P.y = 100;
+	pOut->DrawCondtinalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ", true);
+
+	//Drawing (normal) (non-empty) conditional statement --> STATE 3
+	P.x = 100;	P.y = 300;
+	pOut->DrawCondtinalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000");
+
+	//Drawing (highlighted) (non-empty) conditional statement --> STATE 4
+	P.x = 300;	P.y = 300;
+	pOut->DrawCondtinalStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000", true);
+
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -112,6 +147,23 @@ int main()
 	//TODO: Add code to draw different (Read) statements here in ALL STATES
 	////////////
 
+	//Drawing (normal) (empty) Read statement --> STATE 1
+	P.x = 100;	P.y = 100;
+	pOut->DrawIOStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " ");
+
+	//Drawing (highlighted) (empty) Read statement --> STATE 2
+	P.x = 300;	P.y = 100;
+	pOut->DrawIOStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "  ", true);
+
+	//Drawing (normal) (non-empty) Read statement --> STATE 3
+	P.x = 100;	P.y = 300;
+	pOut->DrawIOStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Read X");
+
+	//Drawing (highlighted) (non-empty) Read statement --> STATE 4
+	P.x = 300;	P.y = 300;
+	pOut->DrawIOStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Read X", true);
+
+
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -122,6 +174,22 @@ int main()
 	////////////
 	//TODO: Add code to draw different (Write) statements here in ALL STATES
 	////////////
+
+	//Drawing (normal) (empty) Write statement --> STATE 1
+	P.x = 100;	P.y = 100;
+	pOut->DrawIOStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " ");
+
+	//Drawing (highlighted) (empty) Write statement --> STATE 2
+	P.x = 300;	P.y = 100;
+	pOut->DrawIOStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "  ", true);
+
+	//Drawing  (normal) (non-empty) Write statement --> STATE 3
+	P.x = 100;	P.y = 300;
+	pOut->DrawIOStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Write X");
+
+	//Drawing (highlighted) (non-empty) Write statement --> STATE 4
+	P.x = 300;	P.y = 300;
+	pOut->DrawIOStat(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Write X", true);
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -135,6 +203,22 @@ int main()
 	//TODO: Add code to draw different (Start & End) statements here  in ALL STATES
 	////////////
 
+	//Drawing (normal)  Start statement 
+	P.x = 100;	P.y = 100;
+	pOut->DrawStart(P, UI.ASSGN_WDTH, UI.ASSGN_HI);
+
+	//Drawing (highlighted) start statement --> STATE 2
+	P.x = 300;	P.y = 100;
+	pOut->DrawStart(P, UI.ASSGN_WDTH, UI.ASSGN_HI, true);
+
+	//Drawing  (normal) end statement --> STATE 3
+	P.x = 100;	P.y = 300;
+	pOut->DrawEnd(P, UI.ASSGN_WDTH, UI.ASSGN_HI);
+
+	//Drawing (highlighted) end statement --> STATE 4
+	P.x = 300;	P.y = 300;
+	pOut->DrawEnd(P, UI.ASSGN_WDTH, UI.ASSGN_HI, true);
+
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -146,6 +230,18 @@ int main()
 	////////////
 	//TODO: Add code to draw different (Connectors) here:  Normal and Highlighted
 	////////////
+
+	//Drawing (normal)  Connector straight line
+	pOut->DrawConnector(100, 100, 100, 200 );
+
+	//Drawing (highlighted) Connector straight line
+	pOut->DrawConnector(200, 100, 200, 200,true);
+
+	//Drawing  (normal) connector not straight line
+	pOut->DrawConnector(100, 300, 200, 400);
+
+	//Drawing (highlighted) connector not straight line
+	pOut->DrawConnector(300, 300, 400, 400,true);
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();

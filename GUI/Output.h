@@ -33,7 +33,18 @@ public:
 	//		e.g. DrawCondtionalStat(......), DrawStart(......), DrawEnd(.......), ...etc
 	//		Decide the parameters that should be passed to each of them
 	
+	void DrawStart(Point Left , int width , int height , bool Selected=false);  // Function to draw start statement shape
+
+	void DrawEnd(Point Left, int width, int height, bool Selected = false);  // Function to draw end statement shape
+
+	void DrawCondtinalStat(Point Left , int width , int height , string text, bool Selected = false); // Function to draw condtinal statemnet
+
+	void DrawIOStat(Point Left, int width, int height, string text, bool Selected = false); // Function to draw I/O statemnet
+
+
 	//TODO: Add DrawConnector function
+
+	void DrawConnector(int ix1, int iy1, int ix2, int iy2, bool Selected = false);
 
 	~Output();
 };

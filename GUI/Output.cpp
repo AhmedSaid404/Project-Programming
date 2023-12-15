@@ -177,7 +177,125 @@ void Output::DrawAssign(Point Left, int width, int height, string Text, bool Sel
 //		e.g. DrawCondtionalStat(......), DrawStart(......), DrawEnd(.......), ...etc
 //		Decide the parameters that should be passed to each of them
 	
+// Draw Start statement function
+void Output::DrawStart(Point Left, int width, int height, bool Selected) {
+
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawColor, 3);	//use normal color
+
+	//Draw the statement block rectangle
+	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
+
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(Left.x + width / 3, Left.y + height / 3, "Start");
+
+}
+
+
+// Draw End statement function
+
+void Output:: DrawEnd(Point Left, int width, int height, bool Selected){      
+	
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawColor, 3);	//use normal color
+
+	//Draw the statement block rectangle
+	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
+
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(Left.x + width / 2.5, Left.y + height / 3, "End");
+
+}
+	
+// Draw Condtinal statement function
+
+void Output::DrawCondtinalStat(Point Left, int width, int height, string text, bool Selected) {
+
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawColor, 3);	//use normal color
+
+	int ipx[4] = { Left.x, Left.x + (width / 2) , Left.x + width , Left.x + (width / 2) };
+	int ipy[4] = { Left.y, Left.y + (height / 2) , Left.y , Left.y - (height / 2) };
+
+	pWind->DrawPolygon(ipx, ipy, 4);
+
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(Left.x + width / 5, Left.y - height/5, text);
+
+}
+
+
+// Draw I/O statement function
+void Output::DrawIOStat(Point Left, int width, int height, string text, bool Selected ) {
+
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawColor, 3);	//use normal color
+
+	int ipx[4] = { Left.x, Left.x + width , Left.x + (width - width/4) , Left.x - (width / 4) };
+	int ipy[4] = { Left.y, Left.y  , Left.y + height , Left.y + height };
+
+	pWind->DrawPolygon(ipx, ipy, 4);
+
+	//Write statement text
+	pWind->SetPen(BLACK, 2);
+	pWind->DrawString(Left.x + width / 6, Left.y + height / 3, text);
+
+}
+
+
+
 //TODO: Add DrawConnector function
+
+
+void Output:: DrawConnector(int ix1, int iy1, int ix2, int iy2, bool Selected) {
+
+	if (Selected)	//if stat is selected, it should be highlighted
+		pWind->SetPen(UI.HighlightColor, 3);	//use highlighting color
+	else
+		pWind->SetPen(UI.DrawColor, 3);	//use normal color
+
+	if (ix1 == ix2 && iy2 > iy1) {                            //  if the distination point straight line under the starting point
+		pWind->DrawLine(ix1, iy1, ix2, iy2);
+		pWind->DrawTriangle(ix2, iy2, ix2 - 5, iy2 - 5, ix2 + 5, iy2 - 5);
+	}
+
+	if ((ix2 > ix1 || ix2 < ix1) && iy2>iy1){                   //  if the distination point under the starting point but not in straight line
+
+		pWind->DrawLine(ix1, iy1, ix2, iy1);
+
+		pWind->DrawLine(ix2, iy1, ix2, iy2);
+
+		pWind->DrawTriangle(ix2, iy2, ix2 - 5, iy2 - 5, ix2 + 5, iy2 - 5);
+	}
+
+	if (ix1 == ix2 && iy2 < iy1) {                            //  if the distination point straight line above the starting point
+		pWind->DrawLine(ix1, iy1, ix2, iy2);
+		pWind->DrawTriangle(ix2, iy2, ix2 - 5, iy2 + 5, ix2 + 5, iy2 + 5);
+	}
+	
+	if ((ix2 > ix1 || ix2 < ix1) && iy2<iy1) {                   //  if the distination point above the starting point but not in straight line
+
+		pWind->DrawLine(ix1, iy1, ix2, iy1);
+
+		pWind->DrawLine(ix2, iy1, ix2, iy2);
+
+		pWind->DrawTriangle(ix2, iy2, ix2 - 5, iy2 + 5, ix2 + 5, iy2 + 5);
+	}
+	
+
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 Output::~Output()
